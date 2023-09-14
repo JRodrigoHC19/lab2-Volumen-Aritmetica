@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 001</title>
+</head>
+<body>
+    <h2> {{titulo}} </h2>
+    <form action="{% url 'encuesta:enviar' %}" method="post">
+        {% csrf_token %}
+        Nombre:
+        <input type="text" name="nombre" maxlength="50"><br>
+        Contraseña:
+        <input type="password" name="password"><br>
+        Educación:
+        <select name="educacion">
+            <option value="sin-estudios"> Sin estudios </option>
+            <option value="eduacion-obligatoria" selected="selected"> eduacion Obligatoria </option>
+            <option value="formacion-profesion"> Formación profesional </option>
+            <option value="universidad"> Universidad </option>
+        </select> <br>
+        
+        Nacionalidad: 
+        <input type="radio" name="nacionalidad" value="hispana">hispana 
+        <input type="radio" name="nacionalidad" value="otra">Otra <br>
+        Idiomas: 
+        <input type="checkbox" name="idiomas" value="español" checked="checked">Español x
+        <input type="checkbox" name="idiomas" value="inglés">Inglés 
+        <input type="checkbox" name="idiomas" value="francés">Francés 
+        <input type="checkbox" name="idiomas" value="alemán">Alemán <br>
+        Email:
+        <input type="text" name="email"><br>
+        Sitio web:
+        <input type="text" name="sitioweb"><br>
+        <!-- botón enviar -->
+        <input type="submit" name="submit" value="Enviar">
+    </form>
+</body>
+</html>
